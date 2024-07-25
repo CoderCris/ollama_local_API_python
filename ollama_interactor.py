@@ -21,3 +21,7 @@ class OllamaInteractor:
         self.process.stdin.close()
         # Wait for the process to finish
         self.process.wait()
+
+
+
+        

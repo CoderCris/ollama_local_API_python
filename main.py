@@ -1,7 +1,7 @@
 from ollama_interactor import OllamaInteractor
+from ollama_interactor_2 import interact_with_powershell_script
 
-if __name__ == "__main__":
-    # Define the Ollama command
+def ollama_interactor_1(command):
     ollama_command = "ollama run phi3"
     
     print("Running the Ollama command: " + ollama_command)
@@ -25,3 +25,13 @@ if __name__ == "__main__":
     finally:
         # Close the interactor
         interactor.close()
+
+def ollama_interactor_2():
+     return interact_with_powershell_script()
+     
+if __name__ == "__main__":
+     print("Script initialized")
+     ollama_interactor_2()
+     print("End of script")
+    # Define the Ollama command
+ 
