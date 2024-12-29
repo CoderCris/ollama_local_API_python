@@ -1,37 +1,16 @@
-from ollama_interactor import OllamaInteractor
-from ollama_interactor_2 import interact_with_powershell_script
+import ollama_interactor_2 as oi2
 
-def ollama_interactor_1(command):
-    ollama_command = "ollama run phi3"
-    
-    print("Running the Ollama command: " + ollama_command)
+def ollama_init():
+  return None
 
-    # Create an instance of the OllamaInteractor
-    interactor = OllamaInteractor(ollama_command)
-    
-    try:
-        while True:
-            # Get input from the user
-            user_input = input("Enter your message: ")
-            
-            if user_input.lower() == "exit":
-                break
-            
-            # Send the message to Ollama and get the response
-            response = interactor.send_message(user_input)
-            
-            # Print the response
-            print("Ollama response:", response)
-    finally:
-        # Close the interactor
-        interactor.close()
+def main():
+  if oi2.check_ollama_windows():
+    print("Ollama service is running")
+  else:
+    print("Ollama service is not running")
+    return None
+  return None
 
-def ollama_interactor_2():
-     return interact_with_powershell_script()
-     
+
 if __name__ == "__main__":
-     print("Script initialized")
-     ollama_interactor_2()
-     print("End of script")
-    # Define the Ollama command
- 
+  main()

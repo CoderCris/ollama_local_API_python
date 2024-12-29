@@ -40,3 +40,18 @@ def interact_with_powershell_script():
 
     finally:
         return True
+    
+
+#Checks if the Ollama service is running on Windows
+def check_ollama_windows():
+    try:
+        output = subprocess.check_output(
+            ["powershell.exe", "Get-Service", "ollama"],
+            text=True,  # ensures output is a string in Python 3
+            stderr=subprocess.STDOUT
+        )
+        return "Running" in output
+    except subprocess.CalledProcessError:
+        # This happens if the command fails, e.g. if the service does not exist
+        return False
+
